@@ -28,25 +28,44 @@ def create_records():
     with app.app_context():
         
         soups = []
-        for i in range(10):
+        for _ in range(10):
             soup = Soup(name=fake.first_name())
             soups.append(soup)
-        db.session.add_all(soups)
-        db.session.commit()
         
         ingredients = []
-        # for i in range(10):
-        #     ingredient = Ingredient(fake.first_name())
-        #     ingredients.append(ingredient)
-        # db.session.add_all(ingredients)
+        for _ in range(20):
+            ingredient = Ingredient(name=fake.first_name())
+            ingredients.append(ingredient)
+            
+        soup_ingredients = []
+        for _ in range(40):
+            si = SoupIngredient()
+            soup_ingredients.append(si)
         
+        # soups = [Soup(name=fake.first_name()) for _ in range(10)]
+        # ingredients = [Ingredient(name=fake.name()) for _ in range(20)]
+        # soup_ingredients = [SoupIngredient() for _ in range(40)]
         
-        return soups # + ingredients
+        db.session.add_all(soups + ingredients + soup_ingredients)
+        db.session.commit()
+        
+        return soups, ingredients, soup_ingredients
+def relate_records(soups, ingredients, soup_ingredients):
+    with app.app_context():
+        for si in soup_ingredients:
+            si.ingredient = rc(ingredients)
+            si.soup = rc(soups)
+            
+        db.session.add_all(soup_ingredients)
+        db.session.commit()
+        return soup_ingredients
+    
 
 if __name__ == '__main__':
     with app.app_context():
         print("Starting seed...")
-        # delete_records()
-        soups = create_records()
+        delete_records()
+        soups, ingredients, soup_ingredients = create_records()
+        soup_ingredients = relate_records(soups, ingredients, soup_ingredients)
         
         # Seed code goes here!
