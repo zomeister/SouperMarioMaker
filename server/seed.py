@@ -39,7 +39,7 @@ def create_records():
             
         soup_ingredients = []
         for _ in range(40):
-            si = SoupIngredient()
+            si = SoupIngredient(name=fake.first_name())
             soup_ingredients.append(si)
         
         # soups = [Soup(name=fake.first_name()) for _ in range(10)]
