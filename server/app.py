@@ -85,7 +85,7 @@ class SoupIngredients(Resource):
     def post(self):
         data = request.json
         try:
-            soup_ingredient = SoupIngredient(soup_id=data['soup_id'], ingredient_id=data['ingredient_id'],)
+            soup_ingredient = SoupIngredient(soup_id=data['soup_id'], ingredient_id=data['ingredient_id'], name=data['name'])
         except ValueError as v_error:
             return make_response({'errors': [str(v_error)]}, 422)
         db.session.add(soup_ingredient)
