@@ -25,6 +25,8 @@ class Ingredient(db.Model, SerializerMixin):
     
     soup_ingredients = db.relationship('SoupIngredient', back_populates='ingredient')
     soups = association_proxy('soup_ingredients', 'soup')
+
+    serialize_rules = ('-soup_ingredients.ingredient','-soup_ingredients.soup.soup_ingredients')
     
     def __repr__(self):
         return f"<id: {self.id}, {self.name}>"
@@ -38,6 +40,8 @@ class SoupIngredient(db.Model, SerializerMixin):
     
     soup = db.relationship('Soup', back_populates='soup_ingredients')
     ingredient = db.relationship('Ingredient', back_populates='soup_ingredients')
+
+    serialize_rules = ('-soup.soup_ingredients', '-ingredient.soup_ingredients',)
     
     def __repr__(self):
         return f"<id: {self.id}, {self.name}>"
