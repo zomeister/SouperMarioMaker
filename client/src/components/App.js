@@ -1,8 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import Button from "./Button";
+import FavoriteSoups from "./FavoriteSoups";
+import IngredientCard from "./IngredientCard";
+import Menu from "./Menu";
+import SoupCard from "./SoupCard";
+import { Switch, Route, Routes} from "react-router-dom";
 
 function App() {
-  return <h1>Phase 4 Project Client</h1>;
+  // const [soups, setSoups] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
+
+  useEffect(() => {
+    fetchIngredients();
+  }, []);
+
+  function fetchIngredients() {
+    fetch('/api/ingredients')
+    .then(res => res.json())
+    .then(data => setIngredients(data))
+    .catch(err => console.log(err));
+    console.log(ingredients);
+  }
+
+  // function fetchAllSoups() {
+  //   fetch('/api/soups')
+  //  .then(res => res.json())
+  //  .then(data => setSoups(data))
+  //  .catch(err => console.log(err));
+  // }
+
+  return <h1>{<Menu ingredients={ingredients}/>}</h1>;
 }
 
 function Home() {
@@ -16,5 +43,10 @@ function Soupify() {
 function FinalSoup() {
   return <h1>FinalSoup</h1>;
 }
+
+function NavBar() {
+
+}
+
 
 export default App;
