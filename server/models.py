@@ -35,6 +35,7 @@ class SoupIngredient(db.Model, SerializerMixin):
     __tablename__ = 'soup_ingredients'
     
     id = db.Column(db.Integer, primary_key=True)
+    
     soup_id = db.Column(db.Integer, db.ForeignKey('soups.id'))
     ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'))
     

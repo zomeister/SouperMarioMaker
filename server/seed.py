@@ -10,11 +10,6 @@ from faker import Faker
 from app import app
 from models import db, Soup, Ingredient, SoupIngredient
 
-
-# def relate_records(soups, ingredients, soup_ingredients):
-#     for si  in soup_ingredients:
-#         si.soup = rc(soups)
-#         si.ingredient
         
 fake = Faker()
 def delete_records():
@@ -46,18 +41,19 @@ def create_records():
         # ingredients = [Ingredient(name=fake.name()) for _ in range(20)]
         # soup_ingredients = [SoupIngredient() for _ in range(40)]
         
-        db.session.add_all(soups + ingredients + soup_ingredients)
+        db.session.add_all(soups + ingredients)
         db.session.commit()
         
         return soups, ingredients, soup_ingredients
 def relate_records(soups, ingredients, soup_ingredients):
     with app.app_context():
         for si in soup_ingredients:
-            si.ingredient = rc(ingredients)
             si.soup = rc(soups)
+            si.ingredient = rc(ingredients)
             
         db.session.add_all(soup_ingredients)
         db.session.commit()
+        
         return soup_ingredients
     
 
@@ -67,5 +63,3 @@ if __name__ == '__main__':
         delete_records()
         soups, ingredients, soup_ingredients = create_records()
         soup_ingredients = relate_records(soups, ingredients, soup_ingredients)
-        
-        # Seed code goes here!
