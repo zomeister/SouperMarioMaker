@@ -1,24 +1,29 @@
 import { useState } from'react'
 import Button from './Button'
 
-export default function IngredientCard({name}) {
-    const [inCart, setInCart] = useState(false)
+export default function IngredientCard({info}) {
+    const [inSoup, setInSoup] = useState(false)
 
-    // function toggleIngredient() {
-    //     setInCart(prev => !prev)
-    //     // TODO: add/remove ingredient to current soup in db (PATCH)
-    //     console.log('add ingredient')
-    // }
+    function removeIngredient() {
+        setInSoup(prev => !prev)
+        // patch to soup/<id>/ingredients
+        console.log('remove ingredient')
+    }
+    
+    function addIngredient() {
+        setInSoup(prev => !prev)
+        // delete to soup/<id>/ingredients
+        console.log('add ingredient')
+    }
 
     return (
-        <li>
-            <h1>{name}</h1>
+        <li><em>{info.name}</em>
             {/* <p>{info.description}</p> */}
             {/* <p>{info.price}</p> */}
-            {/* <Button 
-                handleClick={() => toggleIngredient} 
-                text= {inCart ? 'Remove': 'Add'}
-            ></Button> */}
+            <Button 
+                handleClick={inSoup ? removeIngredient : addIngredient} 
+                text= {inSoup ? 'Remove': 'Add'}
+            ></Button>
         </li>
     )
 }

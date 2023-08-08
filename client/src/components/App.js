@@ -8,28 +8,32 @@ import { Switch, Route, Routes} from "react-router-dom";
 
 function App() {
   // const [soups, setSoups] = useState(null);
-  const [ingredients, setIngredients] = useState([]);
+  const [currentSoup, setCurrentSoup] = useState(null);
+
+  const [ingredients, setIngredients] = useState([]) 
+  const [soups, setSoups] = useState([]);
 
   useEffect(() => {
     fetchIngredients();
+    // fetchSoup();
   }, []);
 
   function fetchIngredients() {
-    fetch('/api/ingredients')
+    fetch('http://localhost:5555/ingredients')
     .then(res => res.json())
     .then(data => setIngredients(data))
     .catch(err => console.log(err));
     console.log(ingredients);
   }
 
-  // function fetchAllSoups() {
-  //   fetch('/api/soups')
+  // function fetchSoup() {
+  //   fetch('http://localhost:5555/soups/1')
   //  .then(res => res.json())
-  //  .then(data => setSoups(data))
+  //  .then(data => setCurrentSoup(data))
   //  .catch(err => console.log(err));
   // }
 
-  return <h1>{<Menu ingredients={ingredients}/>}</h1>;
+  return <h1>{<Menu soup_id={1} ingredients={ingredients}/>}</h1>;
 }
 
 function Home() {
