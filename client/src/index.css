@@ -1,7 +1,34 @@
-:root {
-  --bg: #282c34;
-  --header: #fff;
-  --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
-}
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+#head { 
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  padding: 1px;
+  font-family: 'Raleway', cursive;
+  font-weight: 100;
+  position: relative;
+  background: linear-gradient(to right, black, #eee, black);
+}
+#head::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  width: 600px;
+  margin-left: -300px;
+  margin-top: -220px;
+  height: 600px;
+  background: radial-gradient(50% 50%, ellipse closest-side, #444, black);
+  z-index: -1;
+}
+#heada {
+  background: rgb(219, 206, 83);
+  display: block;
+  padding: 30px;
+  text-decoration: none;
+  letter-spacing: 30px;
+  color: red;
+}
