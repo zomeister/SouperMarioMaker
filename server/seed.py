@@ -12,6 +12,23 @@ from models import db, Soup, Ingredient, SoupIngredient
 
         
 fake = Faker()
+
+ingredient_names = [
+    "rice noodles",
+    "chicken breast",
+    "corn",
+    "onion",
+    "tomato",
+    "garlic",
+    "lettuce",
+    "pepper",
+    "vegetable oil",
+    "sesame seeds",
+    "egg",
+    "siracha",
+    "douglas",
+]
+
 def delete_records():
     with app.app_context():
         Soup.query.delete()
@@ -28,13 +45,13 @@ def create_records():
             soups.append(soup)
         
         ingredients = []
-        for _ in range(20):
-            ingredient = Ingredient(name=fake.first_name())
+        for i in range(13):
+            ingredient = Ingredient(name=ingredient_names[i])
             ingredients.append(ingredient)
             
         soup_ingredients = []
         for _ in range(40):
-            si = SoupIngredient()
+            si = SoupIngredient(name=fake.name())
             soup_ingredients.append(si)
         
         # soups = [Soup(name=fake.first_name()) for _ in range(10)]

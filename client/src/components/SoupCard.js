@@ -1,6 +1,8 @@
 import Button from './Button'
 
-export default function SoupCard() {
+export default function SoupCard({ingredients = null}) {
+
+
     function submitOrder(e) {
         console.log('submitOrder');
     }

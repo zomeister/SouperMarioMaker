@@ -7,10 +7,12 @@ export default function Menu({ingredients}) {
             <IngredientCard key={ingredient.id} info={ingredient} name={ingredient.name} />)
     }
 
+
     return (
         <div>
             <h1>Menu</h1>
             <ul>{renderIngredients(ingredients) }</ul>
+
         </div>
     )
 }

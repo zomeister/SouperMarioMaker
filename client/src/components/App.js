@@ -10,10 +10,14 @@ import Header from "./Header";
 
 function App() {
   // const [soups, setSoups] = useState(null);
-  const [ingredients, setIngredients] = useState([]);
+  const [currentSoup, setCurrentSoup] = useState(null);
+
+  const [ingredients, setIngredients] = useState([]) 
+  const [soups, setSoups] = useState([]);
 
   useEffect(() => {
     fetchIngredients();
+    // fetchSoup();
   }, []);
 
   function fetchIngredients() {
@@ -28,6 +32,7 @@ function App() {
   useEffect(() => {
     fetchAllSoups();
   }, []);
+
 
   function fetchAllSoups() {
   fetch('http://localhost:5555/soups')
