@@ -38,7 +38,7 @@ def create_records():
             ingredients.append(ingredient)
             
         soup_ingredients = []
-        for _ in range(40):
+        for _ in range(10):
             si = SoupIngredient(name=fake.first_name())
             soup_ingredients.append(si)
         
