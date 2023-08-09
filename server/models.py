@@ -10,6 +10,7 @@ class Soup(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
     
     soup_ingredients = db.relationship('SoupIngredient', back_populates='soup')
     ingredients = association_proxy('soup_ingredients', 'ingredient')
@@ -29,6 +30,7 @@ class Ingredient(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
     
     soup_ingredients = db.relationship('SoupIngredient', back_populates='ingredient')
     soups = association_proxy('soup_ingredients', 'soup')
@@ -43,6 +45,7 @@ class SoupIngredient(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
     soup_id = db.Column(db.Integer, db.ForeignKey('soups.id'))
     ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'))
     
@@ -56,6 +59,12 @@ class SoupIngredient(db.Model, SerializerMixin):
         if not new_soup_ingredients_name:
             raise ValueError('Please give the new soup a name!.')
         return new_soup_ingredients_name
+    
+    @validates
+    def validate_soup_ingredients_image(self, key, new_soup_ingredients_image):
+        if not new_soup_ingredients_image:
+            raise ValueError('Please give the new soup a image!.')
+        return new_soup_ingredients_image
 
     @validates
     def validate_soup_id(self, key, new_soup_id):
