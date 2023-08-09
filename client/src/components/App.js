@@ -17,7 +17,6 @@ function App() {
 
   useEffect(() => {
     fetchIngredients();
-    // fetchSoup();
   }, []);
 
   function fetchIngredients() {
@@ -27,12 +26,10 @@ function App() {
   }
   console.log(ingredients);
 
-  const [soups, setSoups] = useState([])
 
   useEffect(() => {
     fetchAllSoups();
   }, []);
-
 
   function fetchAllSoups() {
   fetch('http://localhost:5555/soups')
@@ -46,7 +43,7 @@ function App() {
       <div className="App">
       </div>
       <div className="App2">
-      <h1 id="head"><a id='heada' href="#0" className="font-mario font-normal text-blue-200 text-lg">SOUPER MARIO MAKER</a></h1>
+      <h1 id="head"><a id='heada' href="#0" className="font-mario font-normal text-lg">SOUPER MARIO MAKER</a></h1>
         <Switch>
           <Route exact path="/">
             <Header/>
