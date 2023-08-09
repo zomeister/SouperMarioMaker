@@ -10,25 +10,6 @@ from faker import Faker
 from app import app
 from models import db, Soup, Ingredient, SoupIngredient
 
-        
-fake = Faker()
-
-ingredient_names = [
-    "rice noodles",
-    "chicken breast",
-    "corn",
-    "onion",
-    "tomato",
-    "garlic",
-    "lettuce",
-    "pepper",
-    "vegetable oil",
-    "sesame seeds",
-    "egg",
-    "siracha",
-    "douglas",
-]
-
 def delete_records():
     with app.app_context():
         Soup.query.delete()
