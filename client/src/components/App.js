@@ -8,6 +8,8 @@ import { Switch, Route} from "react-router-dom";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 import Home from "./Home";
+import TheSoups from "./TheSoups";
+
 
 function App() {
   // const [soups, setSoups] = useState(null);
@@ -49,6 +51,9 @@ function App() {
           <Route exact path="/">
             <Header/>
             <Home/>
+              <TheSoups
+                soups={soups}
+              />
           </Route>
           <Route exact path="/soupmaker">
             <Header/>
