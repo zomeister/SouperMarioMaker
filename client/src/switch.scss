@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,800,900|Roboto:400,500,700');
+$border-width:20px;
+$main-color:#E70013;
+$second-color:#FFFFFF;
+
+#switchbody{
+	background:$main-color;
+	height:100%;
+}
+
+.nintendo{
+	display:flex;
+	justify-content:center; 
+	align-items:center;
+	height:75vh;
+}
+.nintendo-switch{
+	display:flex;
+	justify-content:space-between;
+	width:242px;
+	height:242px;
+	.left,.right{
+		display:flex;
+		justify-content:center;
+		height:242px;
+		width:111px;
+		border:$border-width solid $second-color;
+		box-sizing:border-box;
+	}
+	.left{
+		position:relative;
+		border-radius:65px 0 0 65px;
+		margin-top:0; 
+		animation:animation-left .3s; 
+		animation-delay: 1s;        
+		animation-fill-mode:forwards; 
+		&:before{
+			position:absolute;
+			content:"";
+			top:30px;
+			width:45px;
+			height:45px;
+			border-radius:50%;
+			background:$second-color;			
+		}
+	}
+	.right{
+		position:relative;
+		background:$second-color;
+		border-radius: 0 65px 65px 0;
+		margin-top:-121px;
+		animation:animation-right .3s; 
+		animation-delay: 1s; 
+		animation-fill-mode:forwards;  
+		&:before{
+			position:absolute;
+			content:"";
+			top:90px; 
+			width:45px;
+			height:45px;
+			border-radius:50%;
+			background:$main-color;	 		
+		}
+	}
+}
+
+h1{
+	font-family: 'Roboto', sans-serif;
+	font-size:48px;
+	font-weight:700;
+	letter-spacing:10px;
+	text-align:center;
+	color:$second-color;
+	text-transform:uppercase;
+	margin-bottom:10px;
+}
+
+h2{
+	font-family: 'Libre Franklin', sans-serif;
+	font-size:60px;
+	font-weight:800;
+	letter-spacing:10px;
+	text-align:center;
+	color:$second-color;
+	text-transform:uppercase;
+}
+@keyframes animation-right{
+	0%{
+		margin-top:-121px;
+	}
+	50%{
+		margin-top:30px; 
+	}  
+	100%{
+		margin-top:0;
+	}
+}
+
+@keyframes animation-left{
+	0%{
+		margin-top:0;
+	} 
+	50%{
+		margin-top:30px;
+	}
+	100%{
+		margin-top:0; 
+	}
+
+}

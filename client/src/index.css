@@ -32,3 +32,8 @@
   letter-spacing: 30px;
   color: red;
 }
+
+.hidden{
+  transition : 0.5s;
+  display : none;
+}

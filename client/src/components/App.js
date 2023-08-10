@@ -7,6 +7,7 @@ import SoupCard from "./SoupCard";
 import { Switch, Route} from "react-router-dom";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
+import Home from "./Home";
 
 function App() {
   // const [soups, setSoups] = useState(null);
@@ -47,6 +48,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Header/>
+            <Home/>
           </Route>
           <Route exact path="/soupmaker">
             <Header/>
