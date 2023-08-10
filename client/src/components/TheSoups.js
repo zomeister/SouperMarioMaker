@@ -11,7 +11,7 @@ function TheSoups({soups}){
     />
     )
     return (
-        <div className="soup-container">{theSoups}</div>
+        <div className='grid grid-cols-3 md:grid-cols-3 gap-10'>{theSoups}</div>
     )
 
 }

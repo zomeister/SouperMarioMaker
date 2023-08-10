@@ -50,8 +50,11 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Header/>
-            <Home/>
-              <TheSoups
+            <Home/>   
+          </Route>
+          <Route exact path="/thesoups">
+          <Header/>
+          <TheSoups
                 soups={soups}
               />
           </Route>
