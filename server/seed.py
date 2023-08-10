@@ -44,7 +44,7 @@ def create_records():
         soups.append(s9)
         s10 = Soup(name="Bowser's Beefy Borscht", image="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FRecipes%2F2020-12-katie-jackson's-short-rib-borscht%2Fk-photo-2020-12-borscht-3")
         soups.append(s10)
-        s11 - Soup(name="Mario's Miso Adventure Ramen", image="https://www.foodandwine.com/thmb/0AXGLeY6dYnY8sEXFqxBa8opDrs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tonkotsu-Ramen-FT-BLOG1122-8fe6c12d609a4fd4ab246bea3aae140e.jpg")
+        s11 = Soup(name="Mario's Miso Adventure Ramen", image="https://www.foodandwine.com/thmb/0AXGLeY6dYnY8sEXFqxBa8opDrs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tonkotsu-Ramen-FT-BLOG1122-8fe6c12d609a4fd4ab246bea3aae140e.jpg")
         soups.append(s11)
         
         ingredients = []
