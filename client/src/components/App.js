@@ -47,9 +47,13 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Header/>
-           <Menu ingredients={ingredients}/>
           </Route>
-          <Route path="/favoritesoup">
+          <Route exact path="/soupmaker">
+            <Header/>
+            <Menu ingredients={ingredients}/>
+          </Route>
+          <Route path="/favoritesoups">
+            <Header/>
             <FavoriteSoups soups={soups}/>
           </Route>
         </Switch>

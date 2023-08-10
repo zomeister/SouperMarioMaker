@@ -6,8 +6,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'SoupMaker', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'SoupMaker', href: '/soupmaker', current: false },
   { name: 'Favorite Soups', href: '/favoritesoups', current: false },
 ]
 
