@@ -12,7 +12,6 @@ export default function Menu({ingredients}) {
         <div>
             <h1>Menu</h1>
             <ul>{renderIngredients(ingredients) }</ul>
-
         </div>
     )
 }

@@ -17,6 +17,7 @@ function App() {
 
   const [ingredients, setIngredients] = useState([]) 
   const [soups, setSoups] = useState([]);
+  const [favoriteSoups, setFavoriteSoups] = useState([]);
 
   useEffect(() => {
     fetchIngredients();
@@ -41,6 +42,22 @@ function App() {
   console.log(soups)
   }
 
+  function handleAddToFavorites(soup) {
+    
+        setFavoriteSoups([...favoriteSoups, soup]);
+    
+      }
+    
+        function handleRemoveFromFavorites(index) {
+    
+            const updatedFavorites = [...favoriteSoups];
+    
+            updatedFavorites.splice(index, 1);
+    
+            setFavoriteSoups(updatedFavorites);
+    
+        }
+
   return ( <BrowserRouter>
   <>
       <div className="App">
@@ -56,6 +73,9 @@ function App() {
           <Header/>
           <TheSoups
                 soups={soups}
+                onAddToFavorites={handleAddToFavorites}
+                onRemoveFromFavorites={handleRemoveFromFavorites}
+                favoriteSoups={favoriteSoups}
               />
           </Route>
           <Route exact path="/soupmaker">
@@ -64,7 +84,7 @@ function App() {
           </Route>
           <Route path="/favoritesoups">
             <Header/>
-            <FavoriteSoups soups={soups}/>
+            <FavoriteSoups soups={soups} favoriteSoups={favoriteSoups} onRemoveFromFavorites={handleRemoveFromFavorites}/>
           </Route>
         </Switch>
       </div>
