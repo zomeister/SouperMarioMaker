@@ -1,13 +1,20 @@
 import React from "react";
 import SoupCard from "./SoupCard";
 
-function TheSoups({soups}){
-    const theSoups = soups.map((soup) => 
+function TheSoups({soups, onAddToFavorites, onRemoveFromFavorites, favoriteSoups}){
+
+    
+
+
+    const theSoups = soups.map((soup, index) => 
     <SoupCard
-        key={soup.id}
+        key={index}
         name={soup.name}
         image={soup.image}
         id={soup.id}
+        onAddToFavorites={() => onAddToFavorites(soup)}
+        onRemoveFromFavorites={() => onRemoveFromFavorites(index)}
+        isFavorite={favoriteSoups.some(favSoup => favSoup.name === soup.name)}
     />
     )
     return (
