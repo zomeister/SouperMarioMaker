@@ -9,6 +9,7 @@ export default function Menu({soups, setSoups}) {
 
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
+    const [popUp, setPopUp] = useState(null)
 
     const handleName = (e) => {setName(e.target.value)}
 
@@ -32,6 +33,7 @@ export default function Menu({soups, setSoups}) {
             }
             else{
                 resp.json().then((missing) => {
+                    setPopUp(missing)
                     console.log(missing)
                 })
             }
@@ -41,6 +43,8 @@ export default function Menu({soups, setSoups}) {
             <div className="new-soup-form">
               <h2>Soup Maker</h2>
               <form onSubmit={handleSubmit}>
+                <p>{popUp == null ? '' : popUp['errors']}</p>
+                
                 <input type="text" name="name" placeholder={name} onChange={handleName}/>
                 <input type="text" name="image" placeholder={image}  onChange={handleImage}/>
                 <button type="submit">Add Soup</button>
