@@ -24,7 +24,7 @@ def create_records():
     with app.app_context():
         
         soups = []
-        s1 = Soup(name='Mushroom Kingdom Minestrone', image='https://www.bhg.com/thmb/x_eUYmq2nvGyqk6uSbNCjsqKSuI=/550x0/filters:no_upscale():strip_icc()/R107556-cb94eebcdd24489bb65fa37bc61d76fe.jpg')
+        s1 = Soup(name='Mushroom Kingdom Minestrone', image='https://images.themodernproper.com/billowy-turkey/production/posts/2019/Hungarian-Mushroom-Soup-6.jpg?w=1200&q=82&fm=jpg&fit=crop&dm=1601404554&s=82e3710364c62425e799ad7291becd57')
         soups.append(s1)
         s2 = Soup(name='Goomba Gumbo', image='https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FSeries%2F2023-01-how-to-make-cajun-gumbo%2F2022-how-to-make-cajun-gumbo__925')
         soups.append(s2)
@@ -40,11 +40,10 @@ def create_records():
         soups.append(s7)
         s8 = Soup(name="Luigi's Green Broth", image='https://www.marathonsandmotivation.com/wp-content/uploads/2020/01/DSC03983-scaled.jpg.webp')
         soups.append(s8)
-        s9 = Soup(name="Princess Peach's Pea Puree", image='https://www.foodandwine.com/thmb/adCX619Thniagfx2tWl5qUFx204=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/201107-xl-chilled-peach-soup-with-fresh-goat-cheese-2000-bd37ebf458af4b458b33e32930521e02.jpg')
+        s9 = Soup(name="Princess Peach's Pea Puree", image='https://butterwithasideofbread.com/wp-content/uploads/2021/06/Chilled-Peach-Soup-recipe-09.jpg')
         soups.append(s9)
-        s10 = Soup(name="Bowser's Beefy Borscht", image="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FRecipes%2F2020-12-katie-jackson's-short-rib-borscht%2Fk-photo-2020-12-borscht-3")
-        soups.append(s10)
-        s11 = Soup(name="Mario's Miso Adventure Ramen", image="https://www.foodandwine.com/thmb/0AXGLeY6dYnY8sEXFqxBa8opDrs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tonkotsu-Ramen-FT-BLOG1122-8fe6c12d609a4fd4ab246bea3aae140e.jpg")
+        s10 = Soup(name="Bowser's Beefy Borscht", image="https://images.themodernproper.com/billowy-turkey/production/posts/2020/Italian-Meatball-Soup-17.jpg?w=1800&q=82&fm=jpg&fit=crop&dm=1601404668&s=ccb3236e942090571c47c5f27a4f7f82")
+        s11 = Soup(name="Mario's Miso Adventure Ramen", image="https://images.themodernproper.com/billowy-turkey/production/posts/2016/White-Bean-Chicken-Soup-6.jpg?w=1800&q=82&fm=jpg&fit=crop&dm=1685667626&s=1b1e3b1c3ea8d1bba2d49618828faa64")
         soups.append(s11)
         
         ingredients = []
