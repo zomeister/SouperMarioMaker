@@ -80,7 +80,7 @@ function App() {
           </Route>
           <Route exact path="/soupmaker">
             <Header/>
-            <Menu ingredients={ingredients}/>
+            <Menu soups={soups} setSoups={setSoups}/>
           </Route>
           <Route path="/favoritesoups">
             <Header/>
