@@ -13,15 +13,13 @@ export default function SoupCard({ name, image, onAddToFavorites, onRemoveFromFa
     
     return (
         <div >
-          <div className='max-w-lg w-full lg:max-w-full lg:flex'>
+          <div className='max-w-lg w-full lg:max-w-full lg:flex flex-shrink' style={{ height: '200px'}}>
             <div
-              className='h-55 lg:h-auto lg:w-44 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
-              style={{
-                backgroundImage: `url(${image})`,
-              }}
+              className='h-44 lg:h-auto lg:w-44 flex-none  bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
+              style={{ backgroundImage: `url(${image})`, height: '100%' }}
               title='Image Title'
             ></div>
-            <div className='border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal'>
+            <div className='border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal' >
               <div className='mb-8'>
                 <div className='text-gray-900 font-bold text-xl mb-2'>
                   {name}
