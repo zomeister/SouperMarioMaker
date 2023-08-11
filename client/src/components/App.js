@@ -9,33 +9,38 @@ import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 
 function App() {
-  // const [soups, setSoups] = useState(null);
-  const [currentSoup, setCurrentSoup] = useState(null);
-
   const [ingredients, setIngredients] = useState([]) 
   const [soups, setSoups] = useState([]);
+  const [soupIngredients, setSoupIngredients] = useState([]);
+
+  const [soup, setSoup] = useState(null);
 
   useEffect(() => {
-    fetchIngredients();
-  }, []);
-
-  function fetchIngredients() {
-    fetch('http://localhost:5555/ingredients')
+    fetch('http://localhost:3000/ingredients')
     .then((res) => res.json())
     .then((ingredients) => setIngredients(ingredients))
-  }
-  console.log(ingredients);
 
+    fetch('http://localhost:3000/soups')
+    .then(res => res.json())
+    .then(soups => setSoups(soups))
 
-  useEffect(() => {
-    fetchAllSoups();
+    fetch('http://localhost:3000/soup_ingredients')
+    .then(res => res.json())
+    .then(soupIngredients => setSoupIngredients(soupIngredients))
+
+    fetch('http://localhost:3000/soups/1')
+    .then(res => res.json())
+    .then(soup => setSoup(soup))
   }, []);
 
-  function fetchAllSoups() {
-  fetch('http://localhost:5555/soups')
-  .then(res => res.json())
-  .then(soups => setSoups(soups))
-  console.log(soups)
+  // function submitOrder(ai) { // post to soups
+  //   fetch(`http://localhost:3000/soup_ingredients`)
+  //   .then(res => res.json())
+  //   .then(()=>{})
+  // }
+
+  function addSoupIngredient() { // post to soup_ingredients
+
   }
 
   return ( <BrowserRouter>
@@ -47,7 +52,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Header/>
-           <Menu ingredients={ingredients}/>
+           <Menu soup={soup} ingredients={ingredients} soupIngredients={soupIngredients} />
           </Route>
           <Route path="/favoritesoup">
             <FavoriteSoups soups={soups}/>

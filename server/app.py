@@ -90,7 +90,7 @@ class SoupIngredients(Resource):
             return make_response({'errors': [str(v_error)]}, 422)
         db.session.add(soup_ingredient)
         db.session.commit()
-        return make_response(soup_ingredient.to_dict(), 204)
+        return make_response(soup_ingredient.to_dict(), 201)
 
 api.add_resource(SoupIngredients, '/soup_ingredients')
 

@@ -12,8 +12,10 @@ class Soup(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
     
-    soup_ingredients = db.relationship('SoupIngredient', back_populates='soup')
+    soup_ingredients = db.relationship('SoupIngredient', back_populates='soup', cascade='all, delete-orphan')
     ingredients = association_proxy('soup_ingredients', 'ingredient')
+    
+    serialize_rules = ('-soup_ingredients.soup',)
     
     @validates('name')
     def validate_soup_name(self, key, new_soup_name):
@@ -32,10 +34,10 @@ class Ingredient(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     image = db.Column(db.String)
     
-    soup_ingredients = db.relationship('SoupIngredient', back_populates='ingredient')
+    soup_ingredients = db.relationship('SoupIngredient', back_populates='ingredient', cascade='all, delete-orphan')
     soups = association_proxy('soup_ingredients', 'soup')
 
-    serialize_rules = ('-soup_ingredients.ingredient','-soup_ingredients.soup.soup_ingredients')
+    serialize_rules = ('-soup_ingredients.ingredient',)
     
     def __repr__(self):
         return f"<id: {self.id}, {self.name}>"
@@ -45,9 +47,9 @@ class SoupIngredient(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    image = db.Column(db.String)
     soup_id = db.Column(db.Integer, db.ForeignKey('soups.id'))
     ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'))
+    image = db.Column(db.String)
     
     soup = db.relationship('Soup', back_populates='soup_ingredients')
     ingredient = db.relationship('Ingredient', back_populates='soup_ingredients')
